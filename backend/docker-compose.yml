@@ -34,17 +34,6 @@ services:
     env_file:
       - .env
 
-  frontend:
-    build: 
-      context: ./frontend # Caminho para a pasta do seu frontend
-      dockerfile: Dockerfile
-    container_name: medical_frontend
-    ports:
-      - "3000:3000"
-    volumes:
-      - ./frontend:/app
-    restart: always
-
   medical_db:
     image: mysql
     container_name: medical_db
