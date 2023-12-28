@@ -1,9 +1,10 @@
 const express = require('express');
+const login = require('./routes/login');
 
 const app = express();
 
-app.get('/', (req, res) => {
-  res.send('Hello World');
-});
+app.use(express.json());
+
+app.use('/login', login);
 
 module.exports = app;

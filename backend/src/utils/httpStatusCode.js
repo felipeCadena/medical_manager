@@ -9,4 +9,3 @@ const httpMap = {
 };
 
 module.exports = (code) => httpMap[code];
-
