@@ -10,8 +10,8 @@ module.exports = (sequelize, DataTypes) => {
     },
     status: DataTypes.STRING,
     date: { 
-      type: DataTypes.DATETIME,
-      unique: true
+      type: DataTypes.DATE,
+      unique: true,
       },
     doctor_id: {
       type: DataTypes.INTEGER,

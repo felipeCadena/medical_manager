@@ -10,7 +10,7 @@ const validateInputsDoctor = async (req, res, next) => {
     user = await Patient.findOne({ where: { email } });
   }
   if (!user || user.password !== password) {
-    return res.status(401).json({ message: 'Invalid fields' });
+    return res.status(401).json({ message: 'Campos inválidos' });
   }
   next();
 };

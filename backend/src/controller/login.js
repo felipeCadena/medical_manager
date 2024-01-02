@@ -4,7 +4,7 @@ const LoginService = require('../services/login');
 const postLoginDoctor = async (req, res) => {
   const { email, password } = req.body;
   const role = 'doctor';
-  const { status, data } = LoginService.postLogin(email, password, role);
+  const { status, data } = await LoginService.postLogin(email, password, role);
 
   res.status(httpStatusCode(status)).json(data);
 };
@@ -12,14 +12,14 @@ const postLoginDoctor = async (req, res) => {
 const postLoginPatient = async (req, res) => {
   const { email, password } = req.body;
   const role = 'patient';
-  const { status, data } = LoginService.postLogin(email, password, role);
+  const { status, data } = await LoginService.postLogin(email, password, role);
 
   res.status(httpStatusCode(status)).json(data);
 };
 
 const postLoginAdmin = async (req, res) => {
   const { email, password } = req.body;
-  const { status, data } = LoginService.postLoginAdmin(email, password);
+  const { status, data } = await LoginService.postLoginAdmin(email, password);
 
   res.status(httpStatusCode(status)).json(data);
 };
