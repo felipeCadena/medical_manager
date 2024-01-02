@@ -1,0 +1,35 @@
+'use strict';
+
+/** @type {import('sequelize-cli').Migration} */
+module.exports = {
+  async up (queryInterface, Sequelize) {
+    await queryInterface.bulkInsert('patients', [{
+      id: 1,
+      fullName: 'Felipe Rodrigues',
+      image: 'caminho_imagem',
+      gender: 'M',
+      birth: '1990-01-01',
+      CPF: '13412354670',
+      email: 'felipedev@gmail.com',
+      password: 'ecchihentai',
+      phone: '31-98756-1029',
+    },
+    {
+      id: 2,
+      fullName: 'Felipe Cadena',
+      image: 'caminho_imagem',
+      gender: 'M',
+      birth: '1986-02-02',
+      CPF: '16643296700',
+      email: 'felipecadenadev@gmail.com',
+      password: 'shonen',
+      phone: '21-98746-8950',
+    },
+  ], {timestamps: false});
+    
+  },
+
+  async down (queryInterface, Sequelize) {
+    await queryInterface.bulkDelete('patients', null, {});
+  }
+};
