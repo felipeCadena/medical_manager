@@ -5,9 +5,9 @@
   "main": "src/server.js",
   "scripts": {
     "start": "nodemon /src/server.js",
-    "drop": "npx sequelize-cli db:drop",
-    "migrate": "npx sequelize-cli db:create && npx sequelize-cli db:migrate",
-    "seed": "npx sequelize-cli db:seed:all"
+    "drop": "env $(cat .env) npx sequelize-cli db:drop",
+    "migrate": "env $(cat .env) npx sequelize-cli db:create && env $(cat .env) npx sequelize-cli db:migrate",
+    "seed": "env $(cat .env) npx sequelize-cli db:seed:all"
   },
   "keywords": [],
   "author": "",
