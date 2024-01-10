@@ -4,9 +4,9 @@ const generateToken = require('../utils/generateToken');
 const postLogin = async (email, password, role) => {
   let user;
   if (role === 'doctor') {
-    user = await Doctor.findOne({ where: { email, password } });
+    user = await Doctor.findOne({ where: { email } });
   } else {
-    user = await Patient.findOne({ where: { email, password } });
+    user = await Patient.findOne({ where: { email } });
   }
 
   if (!user) {

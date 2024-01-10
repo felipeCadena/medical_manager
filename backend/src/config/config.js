@@ -1,7 +1,8 @@
 const config = {
-  username: process.env.MYSQL_USER,
-  password: process.env.MYSQL_PASSWORD,
-  database: process.env.MYSQL_DATABASE,
+  username: 'medical_user',
+  password: 'password',
+  database: 'medical_db',
+  host: 'medical_db',
   dialect: 'mysql',
 };
 

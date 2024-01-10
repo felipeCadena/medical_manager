@@ -30,9 +30,12 @@ services:
     ports:
       # Expõe a porta padrão da aplicação: altere aqui caso use outra porta
       - 3001:3001
+      - 8080:8080
     # Configura as variáveis de ambiente dentro do container
     env_file:
       - .env
+    networks:
+      - medical
 
   medical_db:
     image: mysql
@@ -43,5 +46,12 @@ services:
       MYSQL_USER: medical_user
       MYSQL_PASSWORD: password
     ports:
-      - "3306:3306"
+      - 3306:3306
     restart: always
+    networks:
+      - medical
+networks:
+  # Cria rede com nome `medical`
+  medical:
+    # Define o `driver` como `bridge`, que é o driver padrão do docker
+    driver: bridge
