@@ -1,20 +1,18 @@
-'use strict';
-
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
-  async up (queryInterface, Sequelize) {
+  async up(queryInterface, Sequelize) {
     await queryInterface.createTable('appointments', {
       id: { 
         type: Sequelize.INTEGER,
         allowNull: false,
         autoIncrement: true,
-        primaryKey: true
+        primaryKey: true,
       },
       status: Sequelize.STRING,
       date: { 
         type: Sequelize.DATE,
-        unique: true
-        },
+        unique: true,
+      },
       doctor_id: {
         type: Sequelize.INTEGER,
         references: {
@@ -32,11 +30,13 @@ module.exports = {
         },
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE',
-      }
+      },
+    }, {
+      underscored: true,
     });
   },
 
-  async down (queryInterface, Sequelize) {
+  async down(queryInterface, Sequelize) {
     await queryInterface.dropTable('appointments');
-  }
+  },
 };

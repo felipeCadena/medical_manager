@@ -1,20 +1,18 @@
-'use strict';
-
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
-  async up (queryInterface, Sequelize) {
+  async up(queryInterface, Sequelize) {
     await queryInterface.createTable('doctors', { 
       id: { 
         type: Sequelize.INTEGER,
         allowNull: false,
         autoIncrement: true,
-        primaryKey: true
+        primaryKey: true,
       },
-      fullName: Sequelize.STRING,
+      full_name: Sequelize.STRING,
       gender: Sequelize.STRING,
       email: { 
-      type: Sequelize.STRING,
-      unique: true
+        type: Sequelize.STRING,
+        unique: true,
       },
       password: Sequelize.STRING,
       image: Sequelize.STRING,
@@ -28,10 +26,12 @@ module.exports = {
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE',
       },
+    }, {
+      underscored: true,
     });
   },
 
-  async down (queryInterface, Sequelize) {
+  async down(queryInterface, Sequelize) {
     await queryInterface.dropTable('doctors');
-  }
+  },
 };

@@ -1,8 +1,6 @@
-'use strict';
-
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
-  async up (queryInterface, Sequelize) {
+  async up(queryInterface, Sequelize) {
     await queryInterface.bulkInsert('appointments', [{
       id: 1,
       status: 'AGENDADA',
@@ -23,11 +21,13 @@ module.exports = {
       date: '2023-12-20 10:00:00',
       doctor_id: 1,
       patient_id: 2,
-    }], { timestamps: false });
-
+    }], { 
+      underscored: true,
+      timestamps: false, 
+    });
   },
 
-  async down (queryInterface, Sequelize) {
+  async down(queryInterface, Sequelize) {
     await queryInterface.bulkDelete('appointments', null, {});
-  }
+  },
 };

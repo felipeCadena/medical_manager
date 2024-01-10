@@ -1,11 +1,9 @@
-'use strict';
-
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
-  async up (queryInterface, Sequelize) {
+  async up(queryInterface, Sequelize) {
     await queryInterface.bulkInsert('doctors', [{
       id: 1,
-      fullName: 'Pereira da Silva',
+      full_name: 'Pereira da Silva',
       gender: 'M',
       email: 'pereira@gmail.com',
       password: 'pereirinha',
@@ -15,7 +13,7 @@ module.exports = {
     },
     {
       id: 2,
-      fullName: 'Fatima Almeida',
+      full_name: 'Fatima Almeida',
       gender: 'F',
       email: 'fatinha@gmail.com',
       password: 'fafa',
@@ -25,17 +23,20 @@ module.exports = {
     },
     {
       id: 3,
-      fullName: 'Carlos Mendes',
+      full_name: 'Carlos Mendes',
       gender: 'M',
       email: 'carlim@gmail.com',
       password: 'cacava',
       image: 'caminho-imagem',
       CRM: 97049,
       expertise_id: 2,
-    }], { timestamps: false });
+    }], { 
+      underscored: true,
+      timestamps: false, 
+    });
   },
 
-  async down (queryInterface, Sequelize) {
+  async down(queryInterface, Sequelize) {
     await queryInterface.bulkDelete('doctors', null, {});
-  }
+  },
 };

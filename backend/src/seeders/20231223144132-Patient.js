@@ -3,27 +3,30 @@ module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.bulkInsert('patients', [{
       id: 1,
-      fullName: 'Felipe Rodrigues',
+      full_name: 'Felipe Rodrigues',
       image: 'caminho_imagem',
       gender: 'M',
       birth: '1990-01-01',
-      CPF: '13412354670',
+      cpf: '13412354670',
       email: 'felipedev@gmail.com',
       password: 'ecchihentai',
       phone: '31-98756-1029',
     },
     {
       id: 2,
-      fullName: 'Felipe Cadena',
+      full_name: 'Felipe Cadena',
       image: 'caminho_imagem',
       gender: 'M',
       birth: '1986-02-02',
-      CPF: '16643296700',
+      cpf: '16643296700',
       email: 'felipecadenadev@gmail.com',
       password: 'shonen',
       phone: '21-98746-8950',
     },
-    ], { timestamps: false });
+    ], { 
+      underscored: true,
+      timestamps: false, 
+    });
   },
 
   async down(queryInterface, Sequelize) {

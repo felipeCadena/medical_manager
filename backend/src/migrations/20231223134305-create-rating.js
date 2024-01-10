@@ -1,8 +1,6 @@
-'use strict';
-
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
-  async up (queryInterface, Sequelize) {
+  async up(queryInterface, Sequelize) {
     await queryInterface.createTable('rating', { 
       appointment_id: {
         type: Sequelize.INTEGER,
@@ -15,10 +13,10 @@ module.exports = {
         primaryKey: true,
       },
       rating: Sequelize.INTEGER,
-    });
+    }, { underscored: true });
   },
 
-  async down (queryInterface, Sequelize) {
+  async down(queryInterface, Sequelize) {
     await queryInterface.dropTable('rating');
-  }
+  },
 };
